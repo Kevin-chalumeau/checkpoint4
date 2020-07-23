@@ -1,0 +1,15 @@
+// event/_form.html.twig
+.event_form label,
+.event_form input[type="text"],
+.event_form input[type="date"],
+.event_form fieldset,
+.event_form button,
+.event_form select,
+.event_form textarea,
+.event_page_new a,
+.event_page_edit a,
+.event_delete,
+.event_form fieldset {
+    font-size: 20px;
+    margin-left: 2%;
+}
