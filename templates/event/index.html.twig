@@ -25,8 +25,12 @@
                 <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.localisation }}</td>
                 <td>
+                    {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
+                    {% endif %}
+                    {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -36,6 +40,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if is_granted("ROLE_ADMIN") %}
     <a href="{{ path('event_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}
