@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/summary")
@@ -27,6 +28,7 @@ class SummaryController extends AbstractController
 
     /**
      * @Route("/new", name="summary_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +52,7 @@ class SummaryController extends AbstractController
 
     /**
      * @Route("/{id}", name="summary_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Summary $summary): Response
     {
@@ -60,6 +63,7 @@ class SummaryController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="summary_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Summary $summary): Response
     {
@@ -80,6 +84,7 @@ class SummaryController extends AbstractController
 
     /**
      * @Route("/{id}", name="summary_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Summary $summary): Response
     {
